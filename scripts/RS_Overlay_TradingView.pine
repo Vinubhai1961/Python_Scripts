@@ -1,0 +1,2784 @@
+//@version=5
+indicator("RS Overlay from CSV", overlay=true)
+
+ticker = syminfo.ticker
+
+rs_val = na
+rs_1m = na
+rs_3m = na
+rs_6m = na
+
+if (ticker == "PTIR")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "SEZL")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "RKLX")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 97
+    rs_6m := 99
+
+if (ticker == "ALMU")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "HOOX")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 91
+    rs_6m := 99
+
+if (ticker == "NEON")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "OKLO")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 97
+    rs_6m := 99
+
+if (ticker == "CDTX")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 97
+    rs_6m := 93
+
+if (ticker == "RKLB")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "LEU")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 92
+    rs_6m := 93
+
+if (ticker == "DAVE")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "AGFY")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "MP")
+    rs_val := 99
+    rs_1m := 98
+    rs_3m := 97
+    rs_6m := 92
+
+if (ticker == "ARQQ")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "SMR")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 96
+    rs_6m := 99
+
+if (ticker == "HOOD")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 98
+    rs_6m := 99
+
+if (ticker == "PLTR")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "HSAI")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "ASTS")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "VRNA")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "VHC")
+    rs_val := 99
+    rs_1m := 95
+    rs_3m := 94
+    rs_6m := 93
+
+if (ticker == "IONQ")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "CRDO")
+    rs_val := 98
+    rs_1m := 99
+    rs_3m := 95
+    rs_6m := 99
+
+if (ticker == "CLS")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "GEV")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "RGTX")
+    rs_val := 98
+    rs_1m := 95
+    rs_3m := 91
+    rs_6m := 98
+
+if (ticker == "RBLX")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 96
+
+if (ticker == "HIMS")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 99
+
+if (ticker == "IONX")
+    rs_val := 98
+    rs_1m := 99
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "BE")
+    rs_val := 98
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "APP")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "KTOS")
+    rs_val := 98
+    rs_1m := 96
+    rs_3m := 96
+    rs_6m := 95
+
+if (ticker == "GDS")
+    rs_val := 98
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "IPX")
+    rs_val := 98
+    rs_1m := 97
+    rs_3m := 92
+    rs_6m := 95
+
+if (ticker == "TSAT")
+    rs_val := 98
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "AS")
+    rs_val := 98
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "TPR")
+    rs_val := 98
+    rs_1m := 96
+    rs_3m := 96
+    rs_6m := 96
+
+if (ticker == "XYZG")
+    rs_val := 98
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 97
+
+if (ticker == "NET")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "UPST")
+    rs_val := 97
+    rs_1m := 96
+    rs_3m := 95
+    rs_6m := 97
+
+if (ticker == "SNWV")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "AGX")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "TLN")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "SOFI")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 95
+    rs_6m := 97
+
+if (ticker == "NNE")
+    rs_val := 97
+    rs_1m := 96
+    rs_3m := 98
+    rs_6m := 99
+
+if (ticker == "INOD")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "SEI")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 99
+
+if (ticker == "GRAL")
+    rs_val := 97
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "SMU")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "SRRK")
+    rs_val := 97
+    rs_1m := 99
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "SRAD")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "FEIM")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 93
+
+if (ticker == "YB")
+    rs_val := 96
+    rs_1m := 92
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "KDEF")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 96
+
+if (ticker == "FOA")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "CVNA")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "HWM")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 95
+
+if (ticker == "ESLT")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 93
+
+if (ticker == "COE")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 95
+    rs_6m := 97
+
+if (ticker == "CCRD")
+    rs_val := 96
+    rs_1m := 96
+    rs_3m := 95
+    rs_6m := 97
+
+if (ticker == "UI")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "RBRK")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "NRG")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 95
+    rs_6m := 92
+
+if (ticker == "VST")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 94
+    rs_6m := 98
+
+if (ticker == "OPOF")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 91
+
+if (ticker == "CRS")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 96
+    rs_6m := 96
+
+if (ticker == "DASH")
+    rs_val := 96
+    rs_1m := 96
+    rs_3m := 95
+    rs_6m := 94
+
+if (ticker == "LMB")
+    rs_val := 96
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 95
+
+if (ticker == "URBN")
+    rs_val := 95
+    rs_1m := 95
+    rs_3m := 92
+    rs_6m := 93
+
+if (ticker == "ROOT")
+    rs_val := 95
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "YINN")
+    rs_val := 95
+    rs_1m := 91
+    rs_3m := 92
+    rs_6m := 92
+
+if (ticker == "AFRM")
+    rs_val := 95
+    rs_1m := 95
+    rs_3m := 94
+    rs_6m := 96
+
+if (ticker == "AKRO")
+    rs_val := 95
+    rs_1m := 97
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "LMND")
+    rs_val := 95
+    rs_1m := 97
+    rs_3m := 94
+    rs_6m := 97
+
+if (ticker == "KRMN")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 91
+    rs_6m := 95
+
+if (ticker == "BTCL")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 94
+    rs_6m := 97
+
+if (ticker == "SMMT")
+    rs_val := 95
+    rs_1m := 93
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "TWLO")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 92
+    rs_6m := 98
+
+if (ticker == "DXPE")
+    rs_val := 95
+    rs_1m := 92
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "TPB")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "NFLU")
+    rs_val := 95
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 96
+
+if (ticker == "SE")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "WILC")
+    rs_val := 95
+    rs_1m := 94
+    rs_3m := 95
+    rs_6m := 94
+
+if (ticker == "NFXL")
+    rs_val := 95
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 96
+
+if (ticker == "AVGG")
+    rs_val := 95
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "MIR")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 92
+    rs_6m := 92
+
+if (ticker == "PYPG")
+    rs_val := 95
+    rs_1m := 95
+    rs_3m := 94
+    rs_6m := 94
+
+if (ticker == "RDDT")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 99
+
+if (ticker == "MSTR")
+    rs_val := 95
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 99
+
+if (ticker == "AXON")
+    rs_val := 94
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "WW")
+    rs_val := 94
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "DXYZ")
+    rs_val := 94
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 99
+
+if (ticker == "TATT")
+    rs_val := 94
+    rs_1m := 94
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "TOST")
+    rs_val := 94
+    rs_1m := 93
+    rs_3m := 92
+    rs_6m := 96
+
+if (ticker == "LINC")
+    rs_val := 94
+    rs_1m := 97
+    rs_3m := 95
+    rs_6m := 92
+
+if (ticker == "APEI")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "TESL")
+    rs_val := 94
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "AHR")
+    rs_val := 94
+    rs_1m := 95
+    rs_3m := 98
+    rs_6m := 95
+
+if (ticker == "BTGD")
+    rs_val := 94
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 93
+
+if (ticker == "FRHC")
+    rs_val := 94
+    rs_1m := 92
+    rs_3m := 97
+    rs_6m := 95
+
+if (ticker == "SPOT")
+    rs_val := 94
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "DRS")
+    rs_val := 94
+    rs_1m := 95
+    rs_3m := 95
+    rs_6m := 92
+
+if (ticker == "XMTR")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "SHOP")
+    rs_val := 94
+    rs_1m := 91
+    rs_3m := 92
+    rs_6m := 95
+
+if (ticker == "LLYVK")
+    rs_val := 93
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "LLYVA")
+    rs_val := 93
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "CCB")
+    rs_val := 93
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "NYAX")
+    rs_val := 93
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 94
+
+if (ticker == "BKTI")
+    rs_val := 93
+    rs_1m := 99
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "DEFI")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "GBFH")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 98
+    rs_6m := 98
+
+if (ticker == "CRK")
+    rs_val := 93
+    rs_1m := 98
+    rs_3m := 97
+    rs_6m := 97
+
+if (ticker == "INSM")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 96
+    rs_6m := 97
+
+if (ticker == "UTI")
+    rs_val := 93
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "BTC")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 94
+
+if (ticker == "HODL")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "EZBC")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "BITB")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "BTCO")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "FBTC")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "BRRR")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "BTCW")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "ARKB")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "IBIT")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "EAT")
+    rs_val := 92
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 99
+
+if (ticker == "PDEX")
+    rs_val := 92
+    rs_1m := 92
+    rs_3m := 99
+    rs_6m := 95
+
+if (ticker == "GEVX")
+    rs_val := 92
+    rs_1m := 93
+    rs_3m := 93
+    rs_6m := 92
+
+if (ticker == "GBTC")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 93
+    rs_6m := 96
+
+if (ticker == "ROAD")
+    rs_val := 92
+    rs_1m := 96
+    rs_3m := 92
+    rs_6m := 91
+
+if (ticker == "IDCC")
+    rs_val := 92
+    rs_1m := 93
+    rs_3m := 97
+    rs_6m := 94
+
+if (ticker == "RDVT")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 95
+
+if (ticker == "SNEX")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 92
+
+if (ticker == "ASTX")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 92
+    rs_6m := 92
+
+if (ticker == "DOCS")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "BYRN")
+    rs_val := 91
+    rs_1m := 98
+    rs_3m := 96
+    rs_6m := 98
+
+if (ticker == "TBRG")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "ESQ")
+    rs_val := 91
+    rs_1m := 94
+    rs_3m := 95
+    rs_6m := 95
+
+if (ticker == "CRWD")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 93
+
+if (ticker == "LRN")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "BCOR")
+    rs_val := 91
+    rs_1m := 91
+    rs_3m := 91
+    rs_6m := 91
+
+if (ticker == "TEM")
+    rs_val := 91
+    rs_1m := 97
+    rs_3m := 92
+    rs_6m := 92
+
+if (ticker == "NFLX")
+    rs_val := 91
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 94
+
+if (ticker == "PGY")
+    rs_val := 99
+    rs_1m := 97
+    rs_3m := 85
+    rs_6m := 4
+
+if (ticker == "METC")
+    rs_val := 98
+    rs_1m := 86
+    rs_3m := 25
+    rs_6m := 4
+
+if (ticker == "WLDN")
+    rs_val := 98
+    rs_1m := 97
+    rs_3m := 88
+    rs_6m := 75
+
+if (ticker == "PARR")
+    rs_val := 97
+    rs_1m := 96
+    rs_3m := 7
+    rs_6m := 4
+
+if (ticker == "SEDG")
+    rs_val := 97
+    rs_1m := 77
+    rs_3m := 7
+    rs_6m := 0
+
+if (ticker == "INBX")
+    rs_val := 96
+    rs_1m := 38
+    rs_3m := 23
+    rs_6m := 17
+
+if (ticker == "FIVE")
+    rs_val := 96
+    rs_1m := 94
+    rs_3m := 15
+    rs_6m := 12
+
+if (ticker == "ESEA")
+    rs_val := 96
+    rs_1m := 95
+    rs_3m := 87
+    rs_6m := 6
+
+if (ticker == "CPS")
+    rs_val := 96
+    rs_1m := 95
+    rs_3m := 60
+    rs_6m := 56
+
+if (ticker == "KEN")
+    rs_val := 96
+    rs_1m := 93
+    rs_3m := 90
+    rs_6m := 85
+
+if (ticker == "TME")
+    rs_val := 96
+    rs_1m := 94
+    rs_3m := 87
+    rs_6m := 55
+
+if (ticker == "AAMI")
+    rs_val := 95
+    rs_1m := 93
+    rs_3m := 83
+    rs_6m := 49
+
+if (ticker == "CRSP")
+    rs_val := 94
+    rs_1m := 71
+    rs_3m := 12
+    rs_6m := 5
+
+if (ticker == "SLVR")
+    rs_val := 93
+    rs_1m := 92
+    rs_3m := 86
+    rs_6m := 48
+
+if (ticker == "DLTR")
+    rs_val := 93
+    rs_1m := 90
+    rs_3m := 44
+    rs_6m := 8
+
+if (ticker == "RYAAY")
+    rs_val := 93
+    rs_1m := 90
+    rs_3m := 73
+    rs_6m := 28
+
+if (ticker == "MRUS")
+    rs_val := 93
+    rs_1m := 81
+    rs_3m := 43
+    rs_6m := 9
+
+if (ticker == "AMD")
+    rs_val := 92
+    rs_1m := 80
+    rs_3m := 7
+    rs_6m := 5
+
+if (ticker == "TEL")
+    rs_val := 92
+    rs_1m := 82
+    rs_3m := 51
+    rs_6m := 38
+
+if (ticker == "SHG")
+    rs_val := 92
+    rs_1m := 90
+    rs_3m := 36
+    rs_6m := 17
+
+if (ticker == "RCMT")
+    rs_val := 92
+    rs_1m := 91
+    rs_3m := 20
+    rs_6m := 11
+
+if (ticker == "SIMO")
+    rs_val := 91
+    rs_1m := 90
+    rs_3m := 11
+    rs_6m := 10
+
+if (ticker == "ECNS")
+    rs_val := 91
+    rs_1m := 87
+    rs_3m := 86
+    rs_6m := 52
+
+if (ticker == "SMCL")
+    rs_val := 91
+    rs_1m := 82
+    rs_3m := 8
+    rs_6m := 1
+
+if (ticker == "EDC")
+    rs_val := 91
+    rs_1m := 86
+    rs_3m := 36
+    rs_6m := 21
+
+if (ticker == "GMS")
+    rs_val := 91
+    rs_1m := 88
+    rs_3m := 15
+    rs_6m := 14
+
+if (ticker == "GAMR")
+    rs_val := 91
+    rs_1m := 90
+    rs_3m := 84
+    rs_6m := 76
+
+if (ticker == "ULTA")
+    rs_val := 91
+    rs_1m := 85
+    rs_3m := 58
+    rs_6m := 53
+
+if (ticker == "QXO")
+    rs_val := 90
+    rs_1m := 89
+    rs_3m := 4
+    rs_6m := 1
+
+if (ticker == "BA")
+    rs_val := 90
+    rs_1m := 85
+    rs_3m := 82
+    rs_6m := 48
+
+if (ticker == "REMX")
+    rs_val := 90
+    rs_1m := 32
+    rs_3m := 21
+    rs_6m := 9
+
+if (ticker == "EVI")
+    rs_val := 90
+    rs_1m := 80
+    rs_3m := 20
+    rs_6m := 8
+
+if (ticker == "VNAM")
+    rs_val := 90
+    rs_1m := 68
+    rs_3m := 56
+    rs_6m := 19
+
+if (ticker == "CVI")
+    rs_val := 90
+    rs_1m := 89
+    rs_3m := 14
+    rs_6m := 6
+
+if (ticker == "SMCI")
+    rs_val := 89
+    rs_1m := 87
+    rs_3m := 18
+    rs_6m := 1
+
+if (ticker == "VC")
+    rs_val := 89
+    rs_1m := 60
+    rs_3m := 16
+    rs_6m := 5
+
+if (ticker == "RTX")
+    rs_val := 89
+    rs_1m := 86
+    rs_3m := 83
+    rs_6m := 82
+
+if (ticker == "LI")
+    rs_val := 89
+    rs_1m := 86
+    rs_3m := 76
+    rs_6m := 12
+
+if (ticker == "SCHW")
+    rs_val := 89
+    rs_1m := 87
+    rs_3m := 85
+    rs_6m := 84
+
+if (ticker == "AGQ")
+    rs_val := 89
+    rs_1m := 85
+    rs_3m := 83
+    rs_6m := 79
+
+if (ticker == "TRS")
+    rs_val := 89
+    rs_1m := 84
+    rs_3m := 28
+    rs_6m := 16
+
+if (ticker == "FCA")
+    rs_val := 89
+    rs_1m := 83
+    rs_3m := 80
+    rs_6m := 50
+
+if (ticker == "SETM")
+    rs_val := 89
+    rs_1m := 76
+    rs_3m := 18
+    rs_6m := 10
+
+if (ticker == "XME")
+    rs_val := 89
+    rs_1m := 82
+    rs_3m := 33
+    rs_6m := 20
+
+if (ticker == "PLAY")
+    rs_val := 88
+    rs_1m := 85
+    rs_3m := 3
+    rs_6m := 1
+
+if (ticker == "GSL")
+    rs_val := 88
+    rs_1m := 69
+    rs_3m := 32
+    rs_6m := 14
+
+if (ticker == "GOLF")
+    rs_val := 88
+    rs_1m := 72
+    rs_3m := 65
+    rs_6m := 48
+
+if (ticker == "ION")
+    rs_val := 88
+    rs_1m := 68
+    rs_3m := 33
+    rs_6m := 12
+
+if (ticker == "WYNN")
+    rs_val := 88
+    rs_1m := 66
+    rs_3m := 31
+    rs_6m := 16
+
+if (ticker == "REX")
+    rs_val := 87
+    rs_1m := 85
+    rs_3m := 21
+    rs_6m := 10
+
+if (ticker == "BSY")
+    rs_val := 87
+    rs_1m := 84
+    rs_3m := 24
+    rs_6m := 15
+
+if (ticker == "HYDR")
+    rs_val := 87
+    rs_1m := 49
+    rs_3m := 10
+    rs_6m := 9
+
+if (ticker == "IDXX")
+    rs_val := 87
+    rs_1m := 85
+    rs_3m := 46
+    rs_6m := 10
+
+if (ticker == "SFST")
+    rs_val := 87
+    rs_1m := 84
+    rs_3m := 81
+    rs_6m := 66
+
+if (ticker == "SCHL")
+    rs_val := 86
+    rs_1m := 16
+    rs_3m := 8
+    rs_6m := 2
+
+if (ticker == "COPJ")
+    rs_val := 86
+    rs_1m := 85
+    rs_3m := 73
+    rs_6m := 9
+
+if (ticker == "PALL")
+    rs_val := 86
+    rs_1m := 84
+    rs_3m := 38
+    rs_6m := 25
+
+if (ticker == "TAYD")
+    rs_val := 86
+    rs_1m := 68
+    rs_3m := 10
+    rs_6m := 4
+
+if (ticker == "EET")
+    rs_val := 86
+    rs_1m := 83
+    rs_3m := 55
+    rs_6m := 28
+
+if (ticker == "EWH")
+    rs_val := 86
+    rs_1m := 84
+    rs_3m := 79
+    rs_6m := 31
+
+if (ticker == "SIG")
+    rs_val := 85
+    rs_1m := 73
+    rs_3m := 13
+    rs_6m := 2
+
+if (ticker == "DRAI")
+    rs_val := 85
+    rs_1m := 83
+    rs_3m := 38
+    rs_6m := 17
+
+if (ticker == "DELL")
+    rs_val := 85
+    rs_1m := 79
+    rs_3m := 16
+    rs_6m := 15
+
+if (ticker == "PLTU")
+    rs_val := 99
+    rs_1m := 99
+    rs_3m := 98
+    rs_6m := 85
+
+if (ticker == "CTEV")
+    rs_val := 98
+    rs_1m := 99
+    rs_3m := 97
+    rs_6m := 88
+
+if (ticker == "UPSX")
+    rs_val := 98
+    rs_1m := 84
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "CYD")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 74
+
+if (ticker == "ESP")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 92
+    rs_6m := 74
+
+if (ticker == "TVRD")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 98
+    rs_6m := 50
+
+if (ticker == "STRL")
+    rs_val := 97
+    rs_1m := 97
+    rs_3m := 91
+    rs_6m := 89
+
+if (ticker == "HRTG")
+    rs_val := 97
+    rs_1m := 98
+    rs_3m := 99
+    rs_6m := 88
+
+if (ticker == "XXRP")
+    rs_val := 96
+    rs_1m := 64
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "MGIC")
+    rs_val := 96
+    rs_1m := 96
+    rs_3m := 91
+    rs_6m := 78
+
+if (ticker == "DB")
+    rs_val := 96
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 88
+
+if (ticker == "ODD")
+    rs_val := 96
+    rs_1m := 97
+    rs_3m := 92
+    rs_6m := 87
+
+if (ticker == "U")
+    rs_val := 95
+    rs_1m := 81
+    rs_3m := 83
+    rs_6m := 51
+
+if (ticker == "ODC")
+    rs_val := 95
+    rs_1m := 95
+    rs_3m := 89
+    rs_6m := 87
+
+if (ticker == "COOP")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 95
+    rs_6m := 88
+
+if (ticker == "RYTM")
+    rs_val := 95
+    rs_1m := 87
+    rs_3m := 96
+    rs_6m := 89
+
+if (ticker == "AU")
+    rs_val := 95
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 86
+
+if (ticker == "VEON")
+    rs_val := 94
+    rs_1m := 90
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "EXEL")
+    rs_val := 94
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 89
+
+if (ticker == "LTM")
+    rs_val := 94
+    rs_1m := 94
+    rs_3m := 92
+    rs_6m := 83
+
+if (ticker == "GDXU")
+    rs_val := 94
+    rs_1m := 97
+    rs_3m := 98
+    rs_6m := 55
+
+if (ticker == "EUAD")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 96
+    rs_6m := 60
+
+if (ticker == "SII")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 93
+    rs_6m := 53
+
+if (ticker == "APH")
+    rs_val := 94
+    rs_1m := 94
+    rs_3m := 90
+    rs_6m := 80
+
+if (ticker == "BBIO")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 95
+    rs_6m := 89
+
+if (ticker == "SHLD")
+    rs_val := 94
+    rs_1m := 96
+    rs_3m := 96
+    rs_6m := 80
+
+if (ticker == "PRA")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 98
+    rs_6m := 65
+
+if (ticker == "JNUG")
+    rs_val := 93
+    rs_1m := 97
+    rs_3m := 97
+    rs_6m := 78
+
+if (ticker == "CALX")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 90
+    rs_6m := 80
+
+if (ticker == "ZS")
+    rs_val := 93
+    rs_1m := 96
+    rs_3m := 92
+    rs_6m := 62
+
+if (ticker == "CW")
+    rs_val := 93
+    rs_1m := 95
+    rs_3m := 87
+    rs_6m := 84
+
+if (ticker == "JCI")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 89
+    rs_6m := 82
+
+if (ticker == "XPP")
+    rs_val := 93
+    rs_1m := 90
+    rs_3m := 93
+    rs_6m := 90
+
+if (ticker == "NUGT")
+    rs_val := 93
+    rs_1m := 96
+    rs_3m := 97
+    rs_6m := 74
+
+if (ticker == "WWD")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 83
+    rs_6m := 82
+
+if (ticker == "APG")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 76
+    rs_6m := 73
+
+if (ticker == "IBEX")
+    rs_val := 93
+    rs_1m := 94
+    rs_3m := 96
+    rs_6m := 90
+
+if (ticker == "VRSN")
+    rs_val := 93
+    rs_1m := 93
+    rs_3m := 97
+    rs_6m := 82
+
+if (ticker == "SENEA")
+    rs_val := 92
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 86
+
+if (ticker == "TIGO")
+    rs_val := 92
+    rs_1m := 92
+    rs_3m := 96
+    rs_6m := 81
+
+if (ticker == "GREK")
+    rs_val := 92
+    rs_1m := 93
+    rs_3m := 93
+    rs_6m := 50
+
+if (ticker == "NTES")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 90
+    rs_6m := 80
+
+if (ticker == "ZLAB")
+    rs_val := 92
+    rs_1m := 94
+    rs_3m := 96
+    rs_6m := 86
+
+if (ticker == "ESE")
+    rs_val := 92
+    rs_1m := 95
+    rs_3m := 95
+    rs_6m := 79
+
+if (ticker == "BTI")
+    rs_val := 92
+    rs_1m := 91
+    rs_3m := 93
+    rs_6m := 85
+
+if (ticker == "IRTC")
+    rs_val := 92
+    rs_1m := 97
+    rs_3m := 86
+    rs_6m := 84
+
+if (ticker == "ISBA")
+    rs_val := 92
+    rs_1m := 96
+    rs_3m := 92
+    rs_6m := 88
+
+if (ticker == "SXT")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 94
+    rs_6m := 51
+
+if (ticker == "OMAB")
+    rs_val := 91
+    rs_1m := 93
+    rs_3m := 90
+    rs_6m := 57
+
+if (ticker == "ASA")
+    rs_val := 91
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 87
+
+if (ticker == "BILI")
+    rs_val := 91
+    rs_1m := 73
+    rs_3m := 85
+    rs_6m := 79
+
+if (ticker == "WPM")
+    rs_val := 91
+    rs_1m := 94
+    rs_3m := 96
+    rs_6m := 66
+
+if (ticker == "OR")
+    rs_val := 91
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 58
+
+if (ticker == "ONC")
+    rs_val := 91
+    rs_1m := 90
+    rs_3m := 95
+    rs_6m := 89
+
+if (ticker == "BTRN")
+    rs_val := 91
+    rs_1m := 91
+    rs_3m := 91
+    rs_6m := 89
+
+if (ticker == "VEEV")
+    rs_val := 91
+    rs_1m := 91
+    rs_3m := 85
+    rs_6m := 77
+
+if (ticker == "BNGE")
+    rs_val := 91
+    rs_1m := 91
+    rs_3m := 90
+    rs_6m := 83
+
+if (ticker == "NATO")
+    rs_val := 91
+    rs_1m := 91
+    rs_3m := 91
+    rs_6m := 59
+
+if (ticker == "FGM")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 95
+    rs_6m := 70
+
+if (ticker == "SGI")
+    rs_val := 91
+    rs_1m := 88
+    rs_3m := 89
+    rs_6m := 88
+
+if (ticker == "XAR")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 86
+    rs_6m := 84
+
+if (ticker == "HWKN")
+    rs_val := 91
+    rs_1m := 92
+    rs_3m := 92
+    rs_6m := 78
+
+if (ticker == "TDS")
+    rs_val := 90
+    rs_1m := 89
+    rs_3m := 97
+    rs_6m := 95
+
+if (ticker == "SHNY")
+    rs_val := 90
+    rs_1m := 96
+    rs_3m := 98
+    rs_6m := 89
+
+if (ticker == "HEI")
+    rs_val := 90
+    rs_1m := 90
+    rs_3m := 84
+    rs_6m := 64
+
+if (ticker == "AEM")
+    rs_val := 90
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 91
+
+if (ticker == "SGDM")
+    rs_val := 90
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 73
+
+if (ticker == "CAE")
+    rs_val := 90
+    rs_1m := 88
+    rs_3m := 92
+    rs_6m := 87
+
+if (ticker == "TGI")
+    rs_val := 90
+    rs_1m := 94
+    rs_3m := 98
+    rs_6m := 88
+
+if (ticker == "ULS")
+    rs_val := 90
+    rs_1m := 95
+    rs_3m := 93
+    rs_6m := 86
+
+if (ticker == "SIL")
+    rs_val := 90
+    rs_1m := 93
+    rs_3m := 91
+    rs_6m := 57
+
+if (ticker == "BBUC")
+    rs_val := 90
+    rs_1m := 90
+    rs_3m := 90
+    rs_6m := 58
+
+if (ticker == "CPNG")
+    rs_val := 90
+    rs_1m := 91
+    rs_3m := 77
+    rs_6m := 76
+
+if (ticker == "GDMN")
+    rs_val := 90
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 80
+
+if (ticker == "WNS")
+    rs_val := 90
+    rs_1m := 69
+    rs_3m := 90
+    rs_6m := 81
+
+if (ticker == "ESPO")
+    rs_val := 90
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 90
+
+if (ticker == "AZZ")
+    rs_val := 90
+    rs_1m := 79
+    rs_3m := 87
+    rs_6m := 81
+
+if (ticker == "GSIB")
+    rs_val := 90
+    rs_1m := 91
+    rs_3m := 92
+    rs_6m := 86
+
+if (ticker == "ITA")
+    rs_val := 90
+    rs_1m := 90
+    rs_3m := 84
+    rs_6m := 77
+
+if (ticker == "LAUR")
+    rs_val := 90
+    rs_1m := 91
+    rs_3m := 94
+    rs_6m := 88
+
+if (ticker == "NERD")
+    rs_val := 90
+    rs_1m := 94
+    rs_3m := 95
+    rs_6m := 88
+
+if (ticker == "BABX")
+    rs_val := 90
+    rs_1m := 84
+    rs_3m := 97
+    rs_6m := 88
+
+if (ticker == "KEMQ")
+    rs_val := 89
+    rs_1m := 90
+    rs_3m := 88
+    rs_6m := 74
+
+if (ticker == "ITRN")
+    rs_val := 89
+    rs_1m := 90
+    rs_3m := 93
+    rs_6m := 88
+
+if (ticker == "RDWR")
+    rs_val := 89
+    rs_1m := 93
+    rs_3m := 91
+    rs_6m := 72
+
+if (ticker == "HSBC")
+    rs_val := 89
+    rs_1m := 87
+    rs_3m := 94
+    rs_6m := 84
+
+if (ticker == "BWXT")
+    rs_val := 89
+    rs_1m := 93
+    rs_3m := 72
+    rs_6m := 71
+
+if (ticker == "DGP")
+    rs_val := 89
+    rs_1m := 95
+    rs_3m := 98
+    rs_6m := 89
+
+if (ticker == "VSEC")
+    rs_val := 89
+    rs_1m := 91
+    rs_3m := 94
+    rs_6m := 85
+
+if (ticker == "DUOL")
+    rs_val := 89
+    rs_1m := 94
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "CAH")
+    rs_val := 89
+    rs_1m := 94
+    rs_3m := 94
+    rs_6m := 80
+
+if (ticker == "PRXG")
+    rs_val := 89
+    rs_1m := 92
+    rs_3m := 90
+    rs_6m := 89
+
+if (ticker == "CHEF")
+    rs_val := 89
+    rs_1m := 93
+    rs_3m := 94
+    rs_6m := 93
+
+if (ticker == "EPOL")
+    rs_val := 89
+    rs_1m := 90
+    rs_3m := 95
+    rs_6m := 53
+
+if (ticker == "OSIS")
+    rs_val := 89
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 93
+
+if (ticker == "DBD")
+    rs_val := 89
+    rs_1m := 91
+    rs_3m := 84
+    rs_6m := 77
+
+if (ticker == "HERO")
+    rs_val := 89
+    rs_1m := 93
+    rs_3m := 93
+    rs_6m := 77
+
+if (ticker == "ODDS")
+    rs_val := 89
+    rs_1m := 89
+    rs_3m := 90
+    rs_6m := 84
+
+if (ticker == "RVNL")
+    rs_val := 88
+    rs_1m := 94
+    rs_3m := 96
+    rs_6m := 89
+
+if (ticker == "IFS")
+    rs_val := 88
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 86
+
+if (ticker == "PTGX")
+    rs_val := 88
+    rs_1m := 92
+    rs_3m := 95
+    rs_6m := 73
+
+if (ticker == "GOEX")
+    rs_val := 88
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 75
+
+if (ticker == "NCSM")
+    rs_val := 88
+    rs_1m := 91
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "FHI")
+    rs_val := 88
+    rs_1m := 82
+    rs_3m := 86
+    rs_6m := 70
+
+if (ticker == "MRCY")
+    rs_val := 88
+    rs_1m := 94
+    rs_3m := 97
+    rs_6m := 90
+
+if (ticker == "RING")
+    rs_val := 88
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 75
+
+if (ticker == "UGL")
+    rs_val := 88
+    rs_1m := 94
+    rs_3m := 97
+    rs_6m := 87
+
+if (ticker == "CORT")
+    rs_val := 88
+    rs_1m := 97
+    rs_3m := 99
+    rs_6m := 98
+
+if (ticker == "ITRI")
+    rs_val := 88
+    rs_1m := 90
+    rs_3m := 84
+    rs_6m := 78
+
+if (ticker == "AUMI")
+    rs_val := 88
+    rs_1m := 94
+    rs_3m := 97
+    rs_6m := 85
+
+if (ticker == "CASY")
+    rs_val := 88
+    rs_1m := 90
+    rs_3m := 93
+    rs_6m := 85
+
+if (ticker == "SGDJ")
+    rs_val := 88
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 70
+
+if (ticker == "GILD")
+    rs_val := 88
+    rs_1m := 86
+    rs_3m := 94
+    rs_6m := 86
+
+if (ticker == "ATGE")
+    rs_val := 88
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 95
+
+if (ticker == "AFK")
+    rs_val := 88
+    rs_1m := 87
+    rs_3m := 88
+    rs_6m := 62
+
+if (ticker == "GOAU")
+    rs_val := 88
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 62
+
+if (ticker == "BETZ")
+    rs_val := 88
+    rs_1m := 89
+    rs_3m := 87
+    rs_6m := 75
+
+if (ticker == "TGTX")
+    rs_val := 87
+    rs_1m := 92
+    rs_3m := 99
+    rs_6m := 95
+
+if (ticker == "GDXJ")
+    rs_val := 87
+    rs_1m := 93
+    rs_3m := 95
+    rs_6m := 71
+
+if (ticker == "NFG")
+    rs_val := 87
+    rs_1m := 91
+    rs_3m := 94
+    rs_6m := 87
+
+if (ticker == "EWP")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 94
+    rs_6m := 50
+
+if (ticker == "RBC")
+    rs_val := 87
+    rs_1m := 90
+    rs_3m := 90
+    rs_6m := 88
+
+if (ticker == "IPI")
+    rs_val := 87
+    rs_1m := 93
+    rs_3m := 96
+    rs_6m := 82
+
+if (ticker == "MISL")
+    rs_val := 87
+    rs_1m := 88
+    rs_3m := 81
+    rs_6m := 65
+
+if (ticker == "CRWL")
+    rs_val := 87
+    rs_1m := 97
+    rs_3m := 91
+    rs_6m := 86
+
+if (ticker == "CSV")
+    rs_val := 87
+    rs_1m := 92
+    rs_3m := 93
+    rs_6m := 92
+
+if (ticker == "PPA")
+    rs_val := 87
+    rs_1m := 88
+    rs_3m := 84
+    rs_6m := 78
+
+if (ticker == "FOXA")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 93
+    rs_6m := 92
+
+if (ticker == "UGI")
+    rs_val := 87
+    rs_1m := 92
+    rs_3m := 93
+    rs_6m := 88
+
+if (ticker == "ERJ")
+    rs_val := 87
+    rs_1m := 95
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "SFM")
+    rs_val := 87
+    rs_1m := 93
+    rs_3m := 98
+    rs_6m := 97
+
+if (ticker == "IDT")
+    rs_val := 87
+    rs_1m := 96
+    rs_3m := 91
+    rs_6m := 82
+
+if (ticker == "BAP")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 88
+    rs_6m := 64
+
+if (ticker == "GDX")
+    rs_val := 87
+    rs_1m := 92
+    rs_3m := 95
+    rs_6m := 69
+
+if (ticker == "BWFG")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 93
+    rs_6m := 79
+
+if (ticker == "SLM")
+    rs_val := 87
+    rs_1m := 92
+    rs_3m := 92
+    rs_6m := 89
+
+if (ticker == "GCAD")
+    rs_val := 87
+    rs_1m := 88
+    rs_3m := 79
+    rs_6m := 74
+
+if (ticker == "ALNY")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 89
+    rs_6m := 88
+
+if (ticker == "DFII")
+    rs_val := 87
+    rs_1m := 90
+    rs_3m := 90
+    rs_6m := 87
+
+if (ticker == "UAE")
+    rs_val := 87
+    rs_1m := 85
+    rs_3m := 91
+    rs_6m := 79
+
+if (ticker == "EUFN")
+    rs_val := 87
+    rs_1m := 89
+    rs_3m := 94
+    rs_6m := 73
+
+if (ticker == "GRMN")
+    rs_val := 86
+    rs_1m := 64
+    rs_3m := 90
+    rs_6m := 89
+
+if (ticker == "BKNG")
+    rs_val := 86
+    rs_1m := 89
+    rs_3m := 91
+    rs_6m := 86
+
+if (ticker == "FRAF")
+    rs_val := 86
+    rs_1m := 69
+    rs_3m := 93
+    rs_6m := 64
+
+if (ticker == "FDNI")
+    rs_val := 86
+    rs_1m := 86
+    rs_3m := 90
+    rs_6m := 84
+
+if (ticker == "LENZ")
+    rs_val := 86
+    rs_1m := 90
+    rs_3m := 91
+    rs_6m := 80
+
+if (ticker == "FTNT")
+    rs_val := 86
+    rs_1m := 90
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "ISRA")
+    rs_val := 86
+    rs_1m := 90
+    rs_3m := 87
+    rs_6m := 85
+
+if (ticker == "CCEP")
+    rs_val := 86
+    rs_1m := 81
+    rs_3m := 91
+    rs_6m := 61
+
+if (ticker == "CM")
+    rs_val := 86
+    rs_1m := 89
+    rs_3m := 86
+    rs_6m := 83
+
+if (ticker == "BFC")
+    rs_val := 86
+    rs_1m := 89
+    rs_3m := 93
+    rs_6m := 79
+
+if (ticker == "UTES")
+    rs_val := 86
+    rs_1m := 88
+    rs_3m := 89
+    rs_6m := 88
+
+if (ticker == "KGRN")
+    rs_val := 86
+    rs_1m := 81
+    rs_3m := 89
+    rs_6m := 66
+
+if (ticker == "FXI")
+    rs_val := 86
+    rs_1m := 85
+    rs_3m := 91
+    rs_6m := 83
+
+if (ticker == "WTS")
+    rs_val := 86
+    rs_1m := 88
+    rs_3m := 72
+    rs_6m := 51
+
+if (ticker == "DAX")
+    rs_val := 85
+    rs_1m := 90
+    rs_3m := 93
+    rs_6m := 75
+
+if (ticker == "IMAX")
+    rs_val := 85
+    rs_1m := 88
+    rs_3m := 91
+    rs_6m := 89
+
+if (ticker == "PAYC")
+    rs_val := 85
+    rs_1m := 86
+    rs_3m := 94
+    rs_6m := 81
+
+if (ticker == "TKO")
+    rs_val := 85
+    rs_1m := 92
+    rs_3m := 96
+    rs_6m := 94
+
+if (ticker == "KT")
+    rs_val := 85
+    rs_1m := 90
+    rs_3m := 93
+    rs_6m := 85
+
+if (ticker == "EWS")
+    rs_val := 85
+    rs_1m := 84
+    rs_3m := 90
+    rs_6m := 78
+
+if (ticker == "NC")
+    rs_val := 85
+    rs_1m := 93
+    rs_3m := 93
+    rs_6m := 56
+
+if (ticker == "NIC")
+    rs_val := 85
+    rs_1m := 90
+    rs_3m := 92
+    rs_6m := 87
+
+if (ticker == "CXSE")
+    rs_val := 85
+    rs_1m := 75
+    rs_3m := 86
+    rs_6m := 70
+
+if (ticker == "MRX")
+    rs_val := 85
+    rs_1m := 95
+    rs_3m := 98
+    rs_6m := 95
+
+if (ticker == "FLGR")
+    rs_val := 85
+    rs_1m := 89
+    rs_3m := 93
+    rs_6m := 74
+
+if (ticker == "EWI")
+    rs_val := 85
+    rs_1m := 88
+    rs_3m := 91
+    rs_6m := 58
+
+if (ticker == "ARVR")
+    rs_val := 85
+    rs_1m := 88
+    rs_3m := 81
+    rs_6m := 66
+
+if (ticker == "WHLRD")
+    rs_val := 85
+    rs_1m := 95
+    rs_3m := 97
+    rs_6m := 96
+
+if (ticker == "ONIT")
+    rs_val := 85
+    rs_1m := 92
+    rs_3m := 92
+    rs_6m := 88
+
+if (ticker == "CHPY")
+    rs_val := 85
+    rs_1m := 92
+    rs_3m := 90
+    rs_6m := 85
+
+if (ticker == "NTNX")
+    rs_val := 84
+    rs_1m := 85
+    rs_3m := 88
+    rs_6m := 82
+
+if (ticker == "BABA")
+    rs_val := 84
+    rs_1m := 82
+    rs_3m := 96
+    rs_6m := 83
+
+if (ticker == "GVAL")
+    rs_val := 84
+    rs_1m := 86
+    rs_3m := 92
+    rs_6m := 53
+
+if (ticker == "FLCH")
+    rs_val := 84
+    rs_1m := 80
+    rs_3m := 89
+    rs_6m := 73
+
+if (ticker == "CBTA")
+    rs_val := 84
+    rs_1m := 88
+    rs_3m := 88
+    rs_6m := 85
+
+if (ticker == "WRLD")
+    rs_val := 84
+    rs_1m := 94
+    rs_3m := 83
+    rs_6m := 77
+
+if (ticker == "MCHI")
+    rs_val := 84
+    rs_1m := 79
+    rs_3m := 89
+    rs_6m := 74
+
+if (ticker == "GDE")
+    rs_val := 84
+    rs_1m := 88
+    rs_3m := 91
+    rs_6m := 83
+
+if (ticker == "AIA")
+    rs_val := 84
+    rs_1m := 82
+    rs_3m := 76
+    rs_6m := 66
+
+if (ticker == "EWG")
+    rs_val := 84
+    rs_1m := 89
+    rs_3m := 93
+    rs_6m := 74
+
+if (ticker == "WELL")
+    rs_val := 84
+    rs_1m := 87
+    rs_3m := 95
+    rs_6m := 86
+
+if (ticker == "EVER")
+    rs_val := 84
+    rs_1m := 67
+    rs_3m := 90
+    rs_6m := 65
+
+if (ticker == "T")
+    rs_val := 84
+    rs_1m := 87
+    rs_3m := 96
+    rs_6m := 85
+
+if (ticker == "TXNM")
+    rs_val := 84
+    rs_1m := 88
+    rs_3m := 94
+    rs_6m := 84
+
+if (ticker == "TTWO")
+    rs_val := 84
+    rs_1m := 92
+    rs_3m := 96
+    rs_6m := 83
+
+if (ticker == "GL")
+    rs_val := 84
+    rs_1m := 79
+    rs_3m := 94
+    rs_6m := 85
+
+if (ticker == "RPRX")
+    rs_val := 84
+    rs_1m := 89
+    rs_3m := 88
+    rs_6m := 76
+
+if (ticker == "YGLD")
+    rs_val := 84
+    rs_1m := 92
+    rs_3m := 96
+    rs_6m := 58
+
+if (ticker == "CQQQ")
+    rs_val := 83
+    rs_1m := 75
+    rs_3m := 87
+    rs_6m := 81
+
+if (ticker == "CGRO")
+    rs_val := 83
+    rs_1m := 77
+    rs_3m := 89
+    rs_6m := 79
+
+if (ticker == "RBA")
+    rs_val := 83
+    rs_1m := 85
+    rs_3m := 92
+    rs_6m := 82
+
+if (ticker == "UTSL")
+    rs_val := 83
+    rs_1m := 81
+    rs_3m := 89
+    rs_6m := 85
+
+if (ticker == "GXC")
+    rs_val := 83
+    rs_1m := 77
+    rs_3m := 87
+    rs_6m := 70
+
+if (ticker == "ETR")
+    rs_val := 83
+    rs_1m := 84
+    rs_3m := 95
+    rs_6m := 92
+
+if (ticker == "CBOE")
+    rs_val := 83
+    rs_1m := 80
+    rs_3m := 87
+    rs_6m := 58
+
+if (ticker == "FOWF")
+    rs_val := 83
+    rs_1m := 83
+    rs_3m := 81
+    rs_6m := 52
+
+if (ticker == "PIZ")
+    rs_val := 83
+    rs_1m := 88
+    rs_3m := 89
+    rs_6m := 71
+
+if (ticker == "AZTD")
+    rs_val := 83
+    rs_1m := 83
+    rs_3m := 81
+    rs_6m := 64
+
+if (ticker == "SFD")
+    rs_val := 83
+    rs_1m := 84
+    rs_3m := 84
+    rs_6m := 67
+
+if (ticker == "FPXE")
+    rs_val := 83
+    rs_1m := 85
+    rs_3m := 80
+    rs_6m := 72
+
+if (ticker == "PAC")
+    rs_val := 83
+    rs_1m := 89
+    rs_3m := 89
+    rs_6m := 71
+
+if (ticker == "THMZ")
+    rs_val := 83
+    rs_1m := 87
+    rs_3m := 88
+    rs_6m := 84
+
+if (ticker == "FER")
+    rs_val := 83
+    rs_1m := 89
+    rs_3m := 92
+    rs_6m := 71
+
+if (ticker == "CIB")
+    rs_val := 83
+    rs_1m := 89
+    rs_3m := 91
+    rs_6m := 85
+
+if (ticker == "THFF")
+    rs_val := 83
+    rs_1m := 88
+    rs_3m := 90
+    rs_6m := 81
+
+if (ticker == "TDG")
+    rs_val := 82
+    rs_1m := 70
+    rs_3m := 84
+    rs_6m := 66
+
+if (ticker == "RAYJ")
+    rs_val := 82
+    rs_1m := 82
+    rs_3m := 84
+    rs_6m := 68
+
+if (ticker == "SNRE")
+    rs_val := 82
+    rs_1m := 89
+    rs_3m := 91
+    rs_6m := 81
+
+if (ticker == "FTWO")
+    rs_val := 82
+    rs_1m := 86
+    rs_3m := 76
+    rs_6m := 72
+
+if (ticker == "GBUG")
+    rs_val := 82
+    rs_1m := 88
+    rs_3m := 90
+    rs_6m := 84
+
+if (ticker == "MINV")
+    rs_val := 82
+    rs_1m := 76
+    rs_3m := 72
+    rs_6m := 60
+
+if (ticker == "JIVE")
+    rs_val := 82
+    rs_1m := 83
+    rs_3m := 88
+    rs_6m := 53
+
+if (ticker == "PAAS")
+    rs_val := 82
+    rs_1m := 91
+    rs_3m := 90
+    rs_6m := 82
+
+if (ticker == "KCAI")
+    rs_val := 82
+    rs_1m := 82
+    rs_3m := 71
+    rs_6m := 55
+
+if (ticker == "BKGI")
+    rs_val := 82
+    rs_1m := 88
+    rs_3m := 92
+    rs_6m := 57
+
+if (ticker == "MCH")
+    rs_val := 82
+    rs_1m := 74
+    rs_3m := 81
+    rs_6m := 72
+
+if (ticker == "STHH")
+    rs_val := 82
+    rs_1m := 95
+    rs_3m := 89
+    rs_6m := 83
+
+if (ticker == "EQT")
+    rs_val := 82
+    rs_1m := 92
+    rs_3m := 93
+    rs_6m := 92
+
+if (ticker == "GRID")
+    rs_val := 82
+    rs_1m := 82
+    rs_3m := 60
+    rs_6m := 57
+
+if (ticker == "MELI")
+    rs_val := 82
+    rs_1m := 92
+    rs_3m := 95
+    rs_6m := 71
+
+if (ticker == "BBU")
+    rs_val := 82
+    rs_1m := 84
+    rs_3m := 83
+    rs_6m := 54
+
+if (ticker == "HG")
+    rs_val := 82
+    rs_1m := 80
+    rs_3m := 85
+    rs_6m := 83
+
+if (ticker == "SONY")
+    rs_val := 82
+    rs_1m := 88
+    rs_3m := 96
+    rs_6m := 86
+
+if (ticker == "OPPE")
+    rs_val := 82
+    rs_1m := 83
+    rs_3m := 87
+    rs_6m := 59
+
+if (ticker == "CIBR")
+    rs_val := 82
+    rs_1m := 88
+    rs_3m := 86
+    rs_6m := 82
+
+if (ticker == "HBTC")
+    rs_val := 82
+    rs_1m := 83
+    rs_3m := 84
+    rs_6m := 83
+
+if (ticker == "DINT")
+    rs_val := 82
+    rs_1m := 81
+    rs_3m := 83
+    rs_6m := 59
+
+if (ticker == "SPR")
+    rs_val := 82
+    rs_1m := 75
+    rs_3m := 84
+    rs_6m := 60
+
+if (ticker == "SIVR")
+    rs_val := 81
+    rs_1m := 83
+    rs_3m := 86
+    rs_6m := 69
+
+if (ticker == "UTG")
+    rs_val := 81
+    rs_1m := 82
+    rs_3m := 85
+    rs_6m := 76
+
+if (ticker == "MUSQ")
+    rs_val := 81
+    rs_1m := 84
+    rs_3m := 74
+    rs_6m := 55
+
+if (ticker == "IVRS")
+    rs_val := 81
+    rs_1m := 75
+    rs_3m := 67
+    rs_6m := 53
+
+if (ticker == "PLMR")
+    rs_val := 81
+    rs_1m := 95
+    rs_3m := 98
+    rs_6m := 91
+
+if (ticker == "FDP")
+    rs_val := 81
+    rs_1m := 80
+    rs_3m := 94
+    rs_6m := 78
+
+if (ticker == "ORLY")
+    rs_val := 81
+    rs_1m := 68
+    rs_3m := 92
+    rs_6m := 82
+
+if (ticker == "SLV")
+    rs_val := 81
+    rs_1m := 83
+    rs_3m := 86
+    rs_6m := 69
+
+if (ticker == "TRI")
+    rs_val := 81
+    rs_1m := 84
+    rs_3m := 89
+    rs_6m := 60
+
+if (ticker == "CME")
+    rs_val := 81
+    rs_1m := 85
+    rs_3m := 94
+    rs_6m := 73
+
+if (ticker == "TCHI")
+    rs_val := 81
+    rs_1m := 67
+    rs_3m := 78
+    rs_6m := 76
+
+if (ticker == "MKL")
+    rs_val := 81
+    rs_1m := 84
+    rs_3m := 88
+    rs_6m := 83
+
+if (ticker == "KWEB")
+    rs_val := 81
+    rs_1m := 70
+    rs_3m := 84
+    rs_6m := 73
+
+if (ticker == "IDMO")
+    rs_val := 81
+    rs_1m := 86
+    rs_3m := 89
+    rs_6m := 59
+
+if (ticker == "IIIV")
+    rs_val := 81
+    rs_1m := 80
+    rs_3m := 80
+    rs_6m := 75
+
+if (ticker == "UNM")
+    rs_val := 80
+    rs_1m := 87
+    rs_3m := 95
+    rs_6m := 91
+
+if (ticker == "ISHP")
+    rs_val := 80
+    rs_1m := 80
+    rs_3m := 85
+    rs_6m := 84
+
+if (ticker == "RMD")
+    rs_val := 80
+    rs_1m := 84
+    rs_3m := 67
+    rs_6m := 63
+
+if (ticker == "CSGS")
+    rs_val := 80
+    rs_1m := 89
+    rs_3m := 92
+    rs_6m := 87
+
+if (ticker == "IPKW")
+    rs_val := 80
+    rs_1m := 80
+    rs_3m := 86
+    rs_6m := 58
+
+if (ticker == "CDNS")
+    rs_val := 80
+    rs_1m := 69
+    rs_3m := 86
+    rs_6m := 59
+
+if (ticker == "EXI")
+    rs_val := 80
+    rs_1m := 80
+    rs_3m := 78
+    rs_6m := 62
+
+if (ticker == "JPY")
+    rs_val := 80
+    rs_1m := 87
+    rs_3m := 91
+    rs_6m := 82
+
+if (ticker == "GLTR")
+    rs_val := 80
+    rs_1m := 87
+    rs_3m := 93
+    rs_6m := 74
+
+if (ticker == "IYZ")
+    rs_val := 80
+    rs_1m := 82
+    rs_3m := 85
+    rs_6m := 80
+
+if (ticker == "PTEC")
+    rs_val := 80
+    rs_1m := 78
+    rs_3m := 80
+    rs_6m := 74
+
+if (ticker == "EMA")
+    rs_val := 80
+    rs_1m := 85
+    rs_3m := 93
+    rs_6m := 60
+
+if (ticker == "EMCS")
+    rs_val := 80
+    rs_1m := 81
+    rs_3m := 79
+    rs_6m := 56
+
+label.new(bar_index, high, "RS: " + str.tostring(rs_val) + "\n1M: " + str.tostring(rs_1m) + "\n3M: " + str.tostring(rs_3m) + "\n6M: " + str.tostring(rs_6m),
+     style=label.style_label_up, color=color.green, size=size.small)
